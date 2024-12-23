@@ -1,0 +1,99 @@
+# API Routes List
+
+## Authentication Routes
+POST    /api/register                 // Create a new user account
+POST    /api/login                    // Login user
+POST    /api/logout                   // Logout user
+GET     /api/user                     // Get authenticated user info
+PUT     /api/user                     // Update user info
+DELETE  /api/user                     // Delete user account
+
+## Games Routes
+GET     /api/games                    // Get all games
+GET     /api/games/{id}              // Get specific game
+POST    /api/games                    // Create new game
+PUT     /api/games/{id}              // Update game
+DELETE  /api/games/{id}              // Delete game
+GET     /api/games/{id}/teams        // Get teams for specific game
+GET     /api/games/{id}/players      // Get players for specific game
+POST    /api/games/{id}/teams        // Add team to game
+POST    /api/games/{id}/players      // Add player to game
+
+## Teams Routes
+GET     /api/teams                    // Get all teams
+GET     /api/teams/{id}              // Get specific team
+POST    /api/teams                    // Create new team
+PUT     /api/teams/{id}              // Update team
+DELETE  /api/teams/{id}              // Delete team
+GET     /api/teams/{id}/players      // Get players in team
+GET     /api/teams/{id}/matches      // Get team matches
+GET     /api/teams/{id}/leaderboard  // Get team leaderboard position
+
+## Players Routes
+GET     /api/players                  // Get all players
+GET     /api/players/{id}            // Get specific player
+POST    /api/players                  // Create new player
+PUT     /api/players/{id}            // Update player
+DELETE  /api/players/{id}            // Delete player
+GET     /api/players/{id}/games      // Get player's games
+GET     /api/players/{id}/leaderboard // Get player leaderboard position
+
+## Matches Routes
+GET     /api/matches                  // Get all matches
+GET     /api/matches/{id}            // Get specific match
+POST    /api/matches                  // Create new match
+PUT     /api/matches/{id}            // Update match
+DELETE  /api/matches/{id}            // Delete match
+GET     /api/matches/{id}/teams      // Get teams in match
+GET     /api/matches/{id}/predictions // Get match predictions
+POST    /api/matches/{id}/predictions // Create prediction for match
+
+## Match Histories Routes
+GET     /api/match-histories          // Get all match histories
+GET     /api/match-histories/{id}     // Get specific match history
+POST    /api/match-histories          // Create match history
+PUT     /api/match-histories/{id}     // Update match history
+DELETE  /api/match-histories/{id}     // Delete match history
+
+## Leaderboard Routes
+GET     /api/leaderboards/teams       // Get team leaderboard
+GET     /api/leaderboards/players     // Get player leaderboard
+GET     /api/leaderboards/teams/{id}  // Get specific team ranking
+GET     /api/leaderboards/players/{id} // Get specific player ranking
+
+## Predictions Routes
+GET     /api/predictions              // Get all predictions
+GET     /api/predictions/{id}         // Get specific prediction
+POST    /api/predictions              // Create new prediction
+PUT     /api/predictions/{id}         // Update prediction
+DELETE  /api/predictions/{id}         // Delete prediction
+GET     /api/predictions/user/{id}    // Get user's predictions
+GET     /api/predictions/match/{id}   // Get match predictions
+
+## Error Responses
+All endpoints should return appropriate HTTP status codes:
+- 200: Success
+- 201: Created
+- 400: Bad Request
+- 401: Unauthorized
+- 403: Forbidden
+- 404: Not Found
+- 422: Validation Error
+- 500: Server Error
+
+## Authentication
+All routes except /api/login and /api/register require authentication via Bearer token.
+
+## Request/Response Format
+All requests and responses should be in JSON format.
+
+## Pagination
+List endpoints support pagination with query parameters:
+- ?page=1
+- ?per_page=10
+
+## Filtering
+List endpoints support filtering with query parameters:
+- ?sort=field_name
+- ?order=asc/desc
+- ?search=keyword
